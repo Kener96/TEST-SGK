@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  dependencies {
+  testCompile "org.testfx:testfx-core:4.0.+"
+  testCompile "org.testfx:testfx-junit:4.0.+"
+  testCompile "junit:junit:4.13-beta-3"
+  testCompile "org.testfx:testfx-junit:4.0.16-alpha"
+  }
+
+
+
+</project>
