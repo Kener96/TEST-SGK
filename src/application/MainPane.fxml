@@ -10,7 +10,7 @@
    <children>
       <VBox layoutX="5.0" layoutY="166.0" prefHeight="244.0" prefWidth="98.0" spacing="18.0">
          <children>
-            <Label text="Numara" textFill="#145da0">
+            <Label text="Numara" textFill="#145da0" fx:id="numaraLabel">
                <font>
                   <Font name="Lucida Bright" size="14.0" />
                </font>

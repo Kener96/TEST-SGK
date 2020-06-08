@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.springframework.maven.skins:maven-spring-skin:1.0.5" type="repository">
+    <properties maven-id="org.springframework.maven.skins:maven-spring-skin:1.0.5" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/maven/skins/maven-spring-skin/1.0.5/maven-spring-skin-1.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

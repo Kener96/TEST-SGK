@@ -6,8 +6,18 @@
   testCompile "org.testfx:testfx-junit:4.0.+"
   testCompile "junit:junit:4.13-beta-3"
   testCompile "org.testfx:testfx-junit:4.0.16-alpha"
+  testCompile "org.testfx:testfx-core:4.0.16-alpha"
+
   }
 
 
+  plugins {
+  id 'org.openjfx.javafxplugin' version '0.0.8'
+  }
+
+  javafx {
+  version = '12'
+  modules = [ 'javafx.controls', 'javafx.fxml' ]
+  }
 
 </project>

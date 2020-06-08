@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="br.com.objectos:way-dbunit:1.14.1" type="repository">
+    <properties maven-id="br.com.objectos:way-dbunit:1.14.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/objectos/way-dbunit/1.14.1/way-dbunit-1.14.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/objectos/way-base/1.14.1/way-base-1.14.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/inject/guice/3.0/guice-3.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/16.0/guava-16.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/objectos/way-core/1.14.1/way-core-1.14.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/1.6.1/jcl-over-slf4j-1.6.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/0.9.29/logback-classic-0.9.29.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/0.9.29/logback-core-0.9.29.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.0/joda-time-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/dbunit/dbunit/2.4.6/dbunit-2.4.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.2/junit-3.8.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

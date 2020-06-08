@@ -24,9 +24,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import library.RegisterService;
 import library.Registers;
 //import org.controlsfx.control.Notifications;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,7 +43,11 @@ import java.util.*;
 //import java.awt.event.ActionEvent;
 // # onaction ın çözümü bu
 
+/**
+ *
+ */
 public class MainController implements Initializable {
+
 
     @FXML
     public Button buttonnotification;
@@ -99,8 +107,6 @@ public class MainController implements Initializable {
 
 
 
-
-
     public int addNumber(int a, int b){
         return a+b;
     }
@@ -147,6 +153,31 @@ public class MainController implements Initializable {
         //  isInputValid();
 
     }
+
+
+    public void insert(int id,String name, String surname,String department, String mail,LocalDate date1,LocalDate date2)
+    {
+        idField.getText().equals(id);
+        nameField.getText().equals(name);
+        surnameField.getText().equals(surname);
+        departmentField.getText().equals(department);
+        mailField.getText().equals(mail);
+        datePicker.getValue().equals(date1);
+        datePicker.getValue().equals(date2);
+        String query = "insert into registers values('" + idField.getText() + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + departmentField.getText() + "','" + mailField.getText() + "','" + datePicker.getValue() + "','" + datePicker2.getValue() + "')";
+        executeQuery(query);
+        showRegisters();
+
+    }
+    public void insert2(String name){
+        nameField.getText().matches("Kamile");
+        String query = "insert into registers values('"+ nameField.getText() + "')";
+        executeQuery(query);
+        showRegisters();
+
+    }
+
+
 
     @FXML
     private void updateButton() {
@@ -332,6 +363,18 @@ public class MainController implements Initializable {
 
 
     }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public ObservableList<Registers> find(String name){
+        Query query=this.entityManager.createNamedQuery("Register.find");
+        query.setParameter("name","%" + name +"%");
+        return (ObservableList<Registers>) query.getResultList();
+    }
+
+
+
 
     @FXML
     public void clickItem(MouseEvent event) {
