@@ -11,6 +11,7 @@ import javafx.util.Callback;
 import library.Registers;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.jets3t.service.impl.soap.axis._2006_03_01.User;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +20,9 @@ import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
@@ -38,7 +41,7 @@ public class MainControllerTest_Mockito {
         reg.setName("Fatih");
 
         verify(reg).setName("Kamile");
-       // verify(reg).setName("ibrahim"); // hatalı olan test
+        //verify(reg).setName("ibrahim"); // hatalı olanı test ediyor açınca
     }
 
     @Mock
@@ -54,11 +57,11 @@ public class MainControllerTest_Mockito {
     //private Registers registers;
 
     @Test
-    public void tesssssssst() throws Exception{
+    public void tesst() throws Exception{
         final Registers userStub=new Registers();
-//register=Mockito.mock(Registers.class);
-userStub.setName("gulay");
-userStub.setSurname("efe");
+        //register=Mockito.mock(Registers.class);
+        userStub.setName("gulay");
+        userStub.setSurname("efe");
 
 
     }
@@ -72,10 +75,6 @@ userStub.setSurname("efe");
       //  MockitoAnnotations.initMocks(this);
         //registers=mock(Registers.class);
 //mockMvc=Mock
-
-
-
-
 
     }
 
@@ -138,10 +137,7 @@ userStub.setSurname("efe");
         MainController m=new MainController();
         Registers registers=mock(Registers.class);
         when(registers.getName()).thenReturn("Kamile");
-        //m.showRegisters();
         m.getRegistersList();
-         verify(registers,atLeastOnce()).getDate();
-
 
     }
 
@@ -171,7 +167,7 @@ userStub.setSurname("efe");
 
 
      @Test
-    public void testVerify(){
+    public void testVerify(){         //true
         Registers test3=Mockito.mock(Registers.class);
         when(test3.getName()).thenReturn("Fatih");
         test3.getName().equals("Fatih");
@@ -181,30 +177,24 @@ userStub.setSurname("efe");
      }
 
     @Test
-    public void testVerify2(){
+    public void testVerify2(){          //false
         Registers test3=Mockito.mock(Registers.class);
         when(test3.getSurname()).thenReturn("Erdogan");
         test3.getSurname().equals("Ener");
         test3.getSurname().equals("Cura");
-        verify(test3,times(2)).getSurname();
+        verify(test3,times(3)).getSurname();
 
     }
 
 
     @Test
     public void letsMockListSizeMethod(){
-       // ObservableList<Registers> list = getRegistersList();
-
-       //assertTrue(true);//çalışıyo
 
         List listMock=mock(List.class);
         when(listMock.size()).thenReturn(2);
         assertEquals(2,listMock.size());
         assertEquals(2,listMock.size());
         assertEquals(2,listMock.size());
-
-
-
 
 
     }
@@ -245,15 +235,6 @@ userStub.setSurname("efe");
 
 
     }
-         @Test
-    public void testWhen(){
-
-
-
-
-         }
-
-
 
 
 }

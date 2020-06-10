@@ -26,6 +26,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import library.RegisterService;
 import library.Registers;
+import model.User;
 //import org.controlsfx.control.Notifications;
 
 import javax.persistence.EntityManager;
@@ -146,10 +147,11 @@ public class MainController implements Initializable {
 
     @FXML
     private void insertButton() {
-        String query = "insert into registers values('" + idField.getText() + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + departmentField.getText() + "','" + mailField.getText() + "','" + datePicker.getValue() + "','" + datePicker2.getValue() + "')";
-        executeQuery(query);
-        showRegisters();
-        alert2();
+        insert(Integer.parseInt(idField.getText()),nameField.getText(),surnameField.getText(),departmentField.getText(),mailField.getText(),datePicker.getValue(),datePicker2.getValue());
+        //String query = "insert into registers values('" + idField.getText() + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + departmentField.getText() + "','" + mailField.getText() + "','" + datePicker.getValue() + "','" + datePicker2.getValue() + "')";
+        //executeQuery(query);
+        //showRegisters();
+        //alert2();
         //  isInputValid();
 
     }
@@ -157,18 +159,38 @@ public class MainController implements Initializable {
 
     public void insert(int id,String name, String surname,String department, String mail,LocalDate date1,LocalDate date2)
     {
-        idField.getText().equals(id);
-        nameField.getText().equals(name);
-        surnameField.getText().equals(surname);
-        departmentField.getText().equals(department);
-        mailField.getText().equals(mail);
-        datePicker.getValue().equals(date1);
-        datePicker.getValue().equals(date2);
-        String query = "insert into registers values('" + idField.getText() + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + departmentField.getText() + "','" + mailField.getText() + "','" + datePicker.getValue() + "','" + datePicker2.getValue() + "')";
+        User user=new User();
+        user.setId(id);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setDepartment(department);
+        user.setMail(mail);
+        user.setDate1(date1);
+        user.setDate2(date2);
+        insertDb(user);
+       // idField.getText().equals(id);
+        //nameField.getText().equals(name);
+        //surnameField.getText().equals(surname);
+        //departmentField.getText().equals(department);
+        //mailField.getText().equals(mail);
+        //datePicker.getValue().equals(date1);
+        //datePicker.getValue().equals(date2);
+        //String query = "insert into registers values('" + idField.getText() + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + departmentField.getText() + "','" + mailField.getText() + "','" + datePicker.getValue() + "','" + datePicker2.getValue() + "')";
+        //executeQuery(query);
+        //showRegisters();
+    }
+    public void insertDb(User user){
+        String query = "insert into registers values('" + user.getId()+ "','" + user.getName() + "','" + user.getSurname()+ "','" + user.getDepartment() + "','" + user.getMail() + "','" + user.getDate1() + "','" + user.getDate2() + "')";
         executeQuery(query);
         showRegisters();
-
+      //  alert2();
     }
+
+
+
+
+
+
     public void insert2(String name){
         nameField.getText().matches("Kamile");
         String query = "insert into registers values('"+ nameField.getText() + "')";
@@ -186,8 +208,6 @@ public class MainController implements Initializable {
         showRegisters();
         alert1();
 
-
-
     }
 
     @FXML
@@ -196,6 +216,8 @@ public class MainController implements Initializable {
         executeQuery(query);
         showRegisters();
         alert3();
+
+
 
         idField.clear();
         nameField.clear();
@@ -222,11 +244,16 @@ public class MainController implements Initializable {
 
     @FXML
     private void alert2() {
-        Alert a1 = new Alert(Alert.AlertType.INFORMATION);
-        a1.setTitle("Bilgi Mesajı");
-        a1.setContentText("Kaydedildi");
-        a1.setHeaderText(null);
-        a1.showAndWait();
+        try {
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+            a1.setTitle("Bilgi Mesajı");
+            a1.setContentText("Kaydedildi");
+            a1.setHeaderText(null);
+            a1.showAndWait();
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+
     }
 
     @FXML
@@ -348,19 +375,19 @@ public class MainController implements Initializable {
 
         ObservableList<Registers> list = getRegistersList();
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Registers, Integer>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("name"));
-        surnameColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("surname"));
-        departmentColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("department"));
-        mailColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("mail"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<Registers, Calendar>("date"));
-        dateColumn2.setCellValueFactory(new PropertyValueFactory<Registers, Date>("date2"));
-        TableView.setItems(list);
+        if (idColumn!=null) {
+            idColumn.setCellValueFactory(new PropertyValueFactory<Registers, Integer>("id"));
+            nameColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("name"));
+            surnameColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("surname"));
+            departmentColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("department"));
+            mailColumn.setCellValueFactory(new PropertyValueFactory<Registers, String>("mail"));
+            dateColumn.setCellValueFactory(new PropertyValueFactory<Registers, Calendar>("date"));
+            dateColumn2.setCellValueFactory(new PropertyValueFactory<Registers, Date>("date2"));
+            TableView.setItems(list);
 
-
-        TableView.setEditable(true);
-        TableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
+            TableView.setEditable(true);
+            TableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        }
 
     }
 

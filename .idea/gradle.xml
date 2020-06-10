@@ -10,6 +10,13 @@
 
   }
 
+  configurations.all {
+  exclude module: 'slf4j-log4j12'
+  }
+
+
+
+
 
   plugins {
   id 'org.openjfx.javafxplugin' version '0.0.8'

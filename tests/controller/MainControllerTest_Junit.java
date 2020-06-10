@@ -79,27 +79,18 @@ public class MainControllerTest_Junit extends MainController{
     protected TableView<Registers> tableView;
 
     Connection connection;
-   private  Button button;
+    private  Button button;
     private MainController mainController;
-   // private Registers test=new Registers("Kamile");
+
 
     @Rule
     public TestName testName=new TestName();
     public final ExpectedException exception=ExpectedException.none();
 
-
-
     @Before
     public void setup() throws Exception{
         mainController=new MainController();
-       // registers=new Registers(151805007,"Kamile","Ener","Bilgisayar Mühendisliği","enerkamile@hotmail.com", LocalDate.parse("07-06-2020"),LocalDate("2021-05-14");
-      //  test=new Registers("Kamile");
-       // System.out.println("start" + testName.getMethodName());
-
-          //Registers registers=new RegisterImpl(connection);
-
     }
-
 
     @Test
     public void testB() throws SQLException {
@@ -122,12 +113,7 @@ public class MainControllerTest_Junit extends MainController{
              connection.rollback();
              connection.close();
          }
-
-
-
-
     }
-
 
     @Test
     public void testA(){
@@ -141,42 +127,11 @@ public class MainControllerTest_Junit extends MainController{
 
 
     @Test
-    public void testC(){
-
+    public void testInsert(){
 
        ObservableList<Registers> list=mainController.getRegistersList();
-       mainController.insert(1,"ali","pek","comp","k@gmail.com",LocalDate.parse("2020-10-05"),LocalDate.parse("2020-11-06"));
-       assertEquals(1,list.size());
-
-
-       // assertEquals("Gaye","Kamile");
-    }
-
-
-
-    @Test
-    public void bb() throws Exception{
-
-     /*   verifyThat("#nameField",NodeMatchers.hasText("Burcu"));
-        verifyThat("#surnameField",NodeMatchers.hasText("İckavak"));
-        verifyThat("#list",(TableView tableView) -> {
-            Object selectedItem=tableView.getSelectionModel().getSelectedItem();
-            return Object.equals(selectedItem.toString(),"Burcu İckavak");
-        });*/
-
-       // Assert.assertEquals("Ege",mainController.getRegistersList().get(2));
-     // verifyThat("#list", NodeMatchers.isNotNull());
-     // verifyThat("#surnameField",NodeMatchers.isNotNull());
-
-    }
-
-
-
-
-  @Test
-    public void test1(){
-
-       // assertEquals("Kamile",test.getName());
+       mainController.insert(300,"Ebru","uzunca","anestezi","e@gmail.com",LocalDate.parse("2020-10-05"),LocalDate.parse("2020-11-06"));
+       //assertEquals(30,list.size());
 
     }
 
@@ -202,13 +157,7 @@ public class MainControllerTest_Junit extends MainController{
         thread.start();
         Thread.sleep(10000);
 
-
-
      }
-
-
-
-
 
     @Test
     public void test(){
@@ -221,31 +170,11 @@ public class MainControllerTest_Junit extends MainController{
     @Test
     public void testFindById(){
        MainController register= new MainController();
-       /* Assert.assertEquals("Kamile",register.toString());
-        String result=register.getRegistersList().toString();
-        //String result=register.showRegisters();
-        assertEquals("Kamile",result);
-       return;*/
-
-
-      //  FxAssert.verifyThat("#tableView", LabeledMatchers.hasText("kamile"));
-      //  MainController testt=new MainController();
-      /*  Label label=(Label) GuiTest.find("numara");
-       FxAssert.verifyThat("numara",LabeledMatchers.hasText("Numara"));*/
-     //  FxAssert.verifyThat(".insertButton",LabeledMatchers.hasText("Ekle"));
-// clickOn
-
-
-       //
-
-     assertTrue(true); //çalışıyo
-
-
-
+     assertTrue(true);
 
     }
 
-    @Test
+  /*  @Test
     public void testIt() throws Exception
     {
        // Connection connection=getConnection();
@@ -264,7 +193,7 @@ public class MainControllerTest_Junit extends MainController{
 
     }
 
-
+*/
 
 
 
